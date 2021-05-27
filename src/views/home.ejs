@@ -1,0 +1,36 @@
+<%- layout('layouts/main.ejs') %>
+<h1 class="mt-4">Works List</h1>
+<div class="card">
+    <div class="card-body">
+<table class="table table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">N#</th>
+            <th scope="col">Title</th>
+            <th scope="col">Company</th>
+            <th scope="col">Type</th>
+            <th scope="col">Location</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% for(var i = 0; i < jobs.length; i++) { %>
+        <tr>
+            <th scope="row"><%= i + 1 %></th>
+            <td><a href="/details/<%= jobs[i]._id %>"><%= jobs[i].Tittle %></a></td>
+            <td><%= jobs[i].Company %></td>
+            <td><%= jobs[i].Type %></td>
+            <td><%= jobs[i].Location %></td>
+            <td><a href="/edit/<%= jobs[i]._id %>" class="btn btn-warning btn-sm" >Edit</a>
+                <a href="/delete/<%= jobs[i]._id %>" class="btn btn-danger btn-sm">Delete</a>
+            </td>
+        </tr>
+        <% } %>
+    </tbody>
+</table>
+
+<ul class="pagination justify-content-center">
+    
+</ul>
+</div>
+</div>

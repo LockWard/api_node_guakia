@@ -1,0 +1,23 @@
+<%- layout('layouts/main.ejs') %>
+<h1 class="display-4">Details</h1>
+<div class="card">
+    <div class="card-body">
+<p class="h4">Title: </p><p class=lead><%= jobs.Tittle %></p>
+<p class="h4">Company: </p><p class="lead"><%= jobs.Company %></p>
+<p class="h4">Type: </p><p class="lead"><%= jobs.Type %></p>
+<p class="h4">Location: </p><p class="lead"><%= jobs.Location %></p>
+<% for(var i = 0; i < categ.length; i++) { %>
+
+<%if (categ[i]._id == jobs.Category) { %> 
+    
+    <p class="h4">Category: </p><p class="lead"><%= categ[i].Category %></p>
+
+<% } %>
+
+<% } %>
+<p class="h4">Description: </p><p class="lead"><%= jobs.Description %></p>
+<p class="h4">How to apply: </p><p class="lead"><%= jobs.HowToApply %></p>
+<p class="h4">Email: </p><p class="lead"><%= jobs.Email %></p>
+<a href="/action"><button class="btn btn-danger" type="button">Back</button></a>
+</div>
+</div>

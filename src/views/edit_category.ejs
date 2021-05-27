@@ -1,0 +1,32 @@
+<%- layout('layouts/main.ejs') %>
+<h1 class="mt-4">Edit Category</h1>
+<div class="card">
+    <div class="card-body">
+      <form action="/categories/<%= categ._id %>" method="POST">
+        <% if (categ.Status == true) { %>
+            <div class="custom-control custom-switch">
+                <a href="/status/<%= categ._id%>"><input type="checkbox" class="custom-control-input" id="customSwitch1" checked value="Hello" onchange="myFunction()">
+                    <label class="custom-control-label" for="customSwitch1">Status</label></a>
+              </div>
+        <% } else {%>
+            <div class="custom-control custom-switch">
+                <a href="/status/<%= categ._id%>"><input type="checkbox" class="custom-control-input" id="customSwitch1" value="" onchange="myFunction()">
+                <label class="custom-control-label" for="customSwitch1">Status</label></a>
+              </div>
+        <% } %>
+        <br>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Category</label>
+          <input type="text" class="form-control" name="Category" value="<%= categ.Category %>">
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+        <a href="/categories"><input type="button" value="Cancel" class="btn btn-danger"></a>
+    </form>
+    </div>
+  </div>
+  <script>
+function myFunction() {
+  //alert("The input value has changed. The new value is: " + val);
+  window.location.href = '/status/<%= categ._id%>';
+}
+  </script>

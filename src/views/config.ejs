@@ -1,0 +1,16 @@
+<%- layout('layouts/main.ejs') %>
+<h1 class="mt-4">Pagination</h1>
+<div class="card">
+    <div class="card-body">
+        <% for(var i = 0; i < pags.length; i++) { %>
+      <form action="/configuration/<%= pags[i]._id %>" method="POST">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Number</label>
+          <input type="text" class="form-control" 
+          aria-describedby="emailHelp" name="Rows" value="<%= pags[i].Rows %>">
+          <% } %>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Update</button>
+    </form>
+    </div>
+  </div>
